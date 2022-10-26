@@ -46,8 +46,9 @@ public class Product {
     @UpdateTimestamp
     private Date lastUpdated;
 
+    // TODO: 26.10.2022 change back to: @JoinColumn(name = "category_id", nullable = false)
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id")
     private ProductCategory category;
 
 }
