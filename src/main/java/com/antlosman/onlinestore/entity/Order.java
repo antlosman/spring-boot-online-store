@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,11 +35,11 @@ public class Order {
 
     @Column(name = "date_created")
     @CreationTimestamp
-    private String dateCreated;
+    private Date dateCreated;
 
     @Column(name = "last_updated")
     @UpdateTimestamp
-    private String lastUpdated;
+    private Date lastUpdated;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
     Set<OrderItem> orderItems = new HashSet<>();
