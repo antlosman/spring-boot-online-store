@@ -54,5 +54,5 @@ Here user can:
   - add shipping and billing address
   - add credit card details
   - review order details and go to purchase
-  *all fields covered with validation
+  - all fields covered with validation
 
