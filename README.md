@@ -13,6 +13,8 @@ Angular 13
 
 PostgreSQL 14.5
 
+Okta
+
 ## Features
 
 ## Home page
