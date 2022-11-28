@@ -1,9 +1,6 @@
 package com.antlosman.onlinestore.config;
 
-import com.antlosman.onlinestore.entity.Country;
-import com.antlosman.onlinestore.entity.Product;
-import com.antlosman.onlinestore.entity.ProductCategory;
-import com.antlosman.onlinestore.entity.State;
+import com.antlosman.onlinestore.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
@@ -37,6 +34,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
         disableHttpMethods(ProductCategory.class, config, theUnsupportedActions);
         disableHttpMethods(Country.class, config, theUnsupportedActions);
         disableHttpMethods(State.class, config, theUnsupportedActions);
+        disableHttpMethods(Order.class, config, theUnsupportedActions);
 
         exposeIds(config);
     }
