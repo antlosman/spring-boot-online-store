@@ -22,7 +22,7 @@ public class Order {
     private Long id;
 
     @Column(name = "order_tracking_number")
-    private String orderTrackNumber;
+    private String orderTrackingNumber;
 
     @Column(name = "total_quantity")
     private String totalQuantity;
