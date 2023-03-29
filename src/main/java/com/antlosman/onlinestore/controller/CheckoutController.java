@@ -1,8 +1,13 @@
 package com.antlosman.onlinestore.controller;
 
+import com.antlosman.onlinestore.dto.PaymentInfo;
 import com.antlosman.onlinestore.dto.Purchase;
 import com.antlosman.onlinestore.dto.PurchaseResponse;
 import com.antlosman.onlinestore.service.CheckoutService;
+import com.stripe.exception.StripeException;
+import com.stripe.model.PaymentIntent;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +26,15 @@ public class CheckoutController {
     @PostMapping("/purchase")
     public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {
 
-        PurchaseResponse purchaseResponse = checkoutService.placeOrder(purchase);
+        return checkoutService.placeOrder(purchase);
+    }
 
-        return purchaseResponse;
+    public ResponseEntity<String> createPaymentIntent(@RequestBody PaymentInfo paymentInfo) throws StripeException {
+
+        PaymentIntent paymentIntent = checkoutService.createPaymentIntent(paymentInfo);
+
+        String paymentStr = paymentIntent.toJson();
+
+        return new ResponseEntity<>(paymentStr, HttpStatus.OK);
     }
 }
